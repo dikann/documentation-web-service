@@ -39,8 +39,11 @@
     <script>
     window.onload = function() {
       // Begin Swagger UI call region
+      const urlParams = new URLSearchParams(window.location.search);
+      const my_default_url = "https://dikann.github.io/web-service/swagger-docs/swagger.yaml";
+      const default_url = urlParams.has("url") ? urlParams.get("url") : my_default_url;
       const ui = SwaggerUIBundle({
-        url: "./swagger.yaml",
+        url: default_url,
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
